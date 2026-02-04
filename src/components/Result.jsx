@@ -9,10 +9,10 @@ const Result = () => {
     const navigate = useNavigate();
     const data = location.state?.data || "No Data Found";
     const [copied, setCopied] = React.useState(false);
-    const [qrSize, setQrSize] = React.useState(window.innerHeight / 7);
+    const [qrSize, setQrSize] = React.useState(window.innerHeight / 8);
 
     useEffect(() => {
-        const handleResize = () => setQrSize(window.innerHeight / 7);
+        const handleResize = () => setQrSize(window.innerHeight / 8);
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
