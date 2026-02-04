@@ -32,7 +32,7 @@ const Result = () => {
                 <div className="qr-wrapper">
                     <QRCode
                         value={data}
-                        size={128}
+                        size={100}
                         bgColor="#ffffff"
                         fgColor="#000000"
                         level="Q"
