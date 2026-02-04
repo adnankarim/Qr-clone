@@ -9,6 +9,13 @@ const Result = () => {
     const navigate = useNavigate();
     const data = location.state?.data || "No Data Found";
     const [copied, setCopied] = React.useState(false);
+    const [qrSize, setQrSize] = React.useState(window.innerHeight / 7);
+
+    useEffect(() => {
+        const handleResize = () => setQrSize(window.innerHeight / 7);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const handleCopy = () => {
         navigator.clipboard.writeText(data);
@@ -32,7 +39,7 @@ const Result = () => {
                 <div className="qr-wrapper">
                     <QRCode
                         value={data}
-                        size={100}
+                        size={qrSize}
                         bgColor="#ffffff"
                         fgColor="#000000"
                         level="Q"
